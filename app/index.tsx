@@ -12,11 +12,14 @@ export default function Index() {
     if (!loading) {
       if (isAuthenticated) {
         if (profile?.role === 'admin') {
+          console.log('Navigating to admin');
           router.replace('/(tabs)/admin');
         } else {
+          console.log('Navigating to user');
           router.replace('/(tabs)/user');
         }
       } else {
+        console.log('Navigating to onboarding');
         router.replace('/onboarding');
       }
     }

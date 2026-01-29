@@ -13,9 +13,10 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function signInWithEmail() {
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
+ async function signInWithEmail() {
+  setLoading(true);
+  try {
+    const { error, data } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
@@ -23,10 +24,35 @@ export default function LoginScreen() {
     if (error) {
       Alert.alert('Error', error.message);
       setLoading(false);
-    } else {
-      // Auth change listener in index.tsx will handle redirection
+      return;
     }
+
+    // Fetch the user's profile to determine role
+    const { data: profileData, error: profileError } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('user_id', data.session.user.id)
+      .single();
+
+    setLoading(false);
+
+    if (profileError) {
+      console.warn('Profile fetch error:', profileError);
+      router.replace('/(tabs)/user'); // Default to user if profile fetch fails
+    } else {
+      // Navigate based on role
+      if (profileData.role === 'admin') {
+        router.replace('/(tabs)/admin');
+      } else {
+        router.replace('/(tabs)/user');
+      }
+    }
+  } catch (err) {
+    console.error('Login error:', err);
+    Alert.alert('Error', 'An unexpected error occurred');
+    setLoading(false);
   }
+}
 
   return (
     <Container safeArea padding="lg" style={styles.container}>
