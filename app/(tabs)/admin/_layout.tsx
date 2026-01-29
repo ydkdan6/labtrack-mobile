@@ -46,6 +46,14 @@ export default function AdminTabLayout() {
           tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
         }}
       />
+
+      <Tabs.Screen
+        name="Scanner"
+        options={{
+          title: 'Scanner',
+          tabBarIcon: ({ color, size }) => <Ionicons name="qr-code" size={size} color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
