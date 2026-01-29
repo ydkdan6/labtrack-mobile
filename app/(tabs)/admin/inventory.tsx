@@ -15,6 +15,10 @@ interface Resource {
   quantity: number;
   status: 'available' | 'maintenance' | 'out_of_stock';
   condition: string;
+  specs: string | null;
+  manual_url: string | null;
+  deployment_location: string | null;
+  qr_code: string | null;
 }
 
 export default function AdminInventory() {
@@ -29,6 +33,9 @@ export default function AdminInventory() {
   const [quantity, setQuantity] = useState('1');
   const [status, setStatus] = useState<'available' | 'maintenance' | 'out_of_stock'>('available');
   const [condition, setCondition] = useState('New');
+  const [specs, setSpecs] = useState('');
+  const [manualUrl, setManualUrl] = useState('');
+  const [deploymentLocation, setDeploymentLocation] = useState('');
 
   const { data: resources = [], isLoading, refetch, isRefetching } = useQuery({
     queryKey: ['resources'],
@@ -99,6 +106,10 @@ export default function AdminInventory() {
       quantity: parseInt(quantity),
       status,
       condition,
+      specs: specs || null,
+      manual_url: manualUrl || null,
+      deployment_location: deploymentLocation || null,
+      qr_code: editingId ? undefined : `RES-${Date.now()}`, // Generate QR code for new resources
     });
   };
 
@@ -124,6 +135,9 @@ export default function AdminInventory() {
     setQuantity('1');
     setStatus('available');
     setCondition('New');
+    setSpecs('');
+    setManualUrl('');
+    setDeploymentLocation('');
     setEditingId(null);
     setModalVisible(false);
   };
@@ -135,6 +149,9 @@ export default function AdminInventory() {
     setQuantity(resource.quantity.toString());
     setStatus(resource.status);
     setCondition(resource.condition);
+    setSpecs(resource.specs || '');
+    setManualUrl(resource.manual_url || '');
+    setDeploymentLocation(resource.deployment_location || '');
     setEditingId(resource.id);
     setModalVisible(true);
   };
@@ -232,6 +249,29 @@ export default function AdminInventory() {
               <Input label="Quantity" value={quantity} onChangeText={setQuantity} keyboardType="numeric" />
               <View style={{ height: spacing.sm }} />
               <Input label="Condition" value={condition} onChangeText={setCondition} placeholder="Good / New / Used" />
+              <View style={{ height: spacing.sm }} />
+              <Input 
+                label="Deployment Location" 
+                value={deploymentLocation} 
+                onChangeText={setDeploymentLocation} 
+                placeholder="Lab Room 101, Building A" 
+              />
+              <View style={{ height: spacing.sm }} />
+              <Input 
+                label="Technical Specifications" 
+                value={specs} 
+                onChangeText={setSpecs} 
+                placeholder="Enter specs (e.g., Model: X1, Power: 220V)" 
+                multiline
+                numberOfLines={3}
+              />
+              <View style={{ height: spacing.sm }} />
+              <Input 
+                label="Manual URL" 
+                value={manualUrl} 
+                onChangeText={setManualUrl} 
+                placeholder="https://example.com/manual.pdf" 
+              />
 
               <View style={styles.formSection}>
                 <Text style={styles.formLabel}>Type</Text>
