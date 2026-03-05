@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    marginTop: spacing.xl,
+    marginTop: spacing.xxxl,
     width: '100%',
   },
   signupContainer: {
