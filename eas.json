@@ -1,6 +1,9 @@
 {
   "cli": {
     "version": ">= 13.2.0",
+    "appVersionSource": "remote"{
+  "cli": {
+    "version": ">= 13.2.0",
     "appVersionSource": "remote"
   },
   "build": {
@@ -9,16 +12,28 @@
         "buildType": "apk"
       },
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
+      }
     },
     "preview": {
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
       }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
+      }
     }
   },
   "submit": {
