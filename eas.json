@@ -15,7 +15,7 @@
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXJyYWxoZXpncnB5Y254cmt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2MDE4NTMsImV4cCI6MjA4NTE3Nzg1M30.1HiawmqtHdaEG3pGs-6ECoazBR7ygITDwVdnGSTa0UY"
       }
     },
     "preview": {
@@ -25,14 +25,14 @@
       },
       "env": {
         "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXJyYWxoZXpncnB5Y254cmt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2MDE4NTMsImV4cCI6MjA4NTE3Nzg1M30.1HiawmqtHdaEG3pGs-6ECoazBR7ygITDwVdnGSTa0UY"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
         "EXPO_PUBLIC_SUPABASE_URL": "https://uemrralhezgrpycnxrku.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "your-supabase-anon-key"
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXJyYWxoZXpncnB5Y254cmt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk2MDE4NTMsImV4cCI6MjA4NTE3Nzg1M30.1HiawmqtHdaEG3pGs-6ECoazBR7ygITDwVdnGSTa0UY"
       }
     }
   },
