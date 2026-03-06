@@ -117,7 +117,7 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('user_id', userId)
-        .single();
+        .maybeSingle()
 
       if (error) {
         // Don't spam console for network errors
